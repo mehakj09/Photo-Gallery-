@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Animation</title>
+  <style>
+    .navbar {
+      overflow: hidden;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      font-size: 16px;
+      color: black;
+      text-align: center;
+      padding: 25px 15px;
+      text-decoration: none;
+      transition: border-bottom-color 0.3s;
+    }
+
+    .navbar a:hover {
+      border-bottom: 2px solid darkblue;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: none;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    .menu a {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .signup-box,
+    .login-box {
+      border: 1px solid darkblue;
+      padding: 5px;
+      margin-top: 10px;
+      height: 40px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: 10px;
+      background-color: white;
+      border: 2px solid darkblue;
+      bottom: 5px;
+    }
+
+    .signup-box a,
+    .login-box a {
+      color: darkblue;
+      text-decoration: none;
+    }
+
+    .signup-box:hover,
+    .login-box:hover {
+      background-color: lightblue;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-right: auto;
+    }
+
+    .navbar a:not(:first-child) {
+      margin-left: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .navbar a:not(:first-child),.navbar a{
+        display: block;
+      }
+
+      .menu-icon {
+        display: block;
+        margin-left: auto;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu a {
+        display: block;
+        padding: 8px;
+        text-align: center;
+      }
+
+      .menu.active {
+        display: flex;
+      }
+
+      .signup-box,
+      .login-box,
+      .miscbox {
+        display: none;
+      }
+
+    }
+    
+    #para1 {
+      font-family: "Amatic SC", cursive;
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      min-width: 320px;
+      text-align: center;
+    }
+
+    .animation-wrapper {
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+      background: white;
+      position: relative;
+      align-items: center;
+      color: #212121;
+      box-sizing: border-box;
+      flex: 1;
+    }
+
+    .animate {
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+      margin-bottom: 16px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      animation: zoomInFade 3s linear 1s infinite forwards;
+    }
+
+    .animate-1 { animation-delay: 0.5s; }
+    .animate-2 { animation-delay: 1.5s; }
+    .animate-3 { animation-delay: 2.5s; }
+    .animate-3 { animation-delay: 3s; }
+
+    @keyframes zoomInFade {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+        top: 100%;
+        visibility: hidden;
+      }  
+      50% {
+        transform: scale(1);
+        opacity: 1;
+        top: 50%;
+        visibility: visible;
+      }
+      75% {
+        top: 36%;
+      }
+      100% {
+        transform: scale(1.4);
+        opacity: 0;
+        top: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">VocaVista</div>
+    <div style="margin-left: auto;" class="miscbox">
+      <a href="">Home</a>
+      <a href="">About Us</a>
+    </div>
+    <div class="signup-box">
+      <a href="">Sign Up</a>
+    </div>
+    <div class="login-box">
+      <a href="">Login</a>
+    </div>
+    <div class="menu-icon">&#9776;</div>
+    <div class="menu">
+      <a href="">Home</a>
+      <a href="">About Us</a>
+      <a href="">Sign Up</a>
+      <a href="">Login</a>
+    </div>
+  </div>
+  <div id="para1">
+    <h1 style="visibility: visible;">Photo Gallery</h1>
+  </div>
+  <div style="display: flex; justify-content: space-between;">
+    <div class="animation-wrapper">
+      <div class="animate animate-1">
+        <img src="https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 1">
+      </div>
+      <!-- This Switches the images 
+      <div class="animate animate-1">
+        <img src="https://images.pexels.com/photos/3729557/pexels-photo-3729557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 4">
+      </div>
+    -->
+    </div>
+    <div class="animation-wrapper">
+      <div class="animate animate-2">
+        <img src="https://images.pexels.com/photos/3729557/pexels-photo-3729557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 4">
+      </div>
+    </div>
+
+    <div class="animation-wrapper">
+      <div class="animate animate-3">
+        <img src="https://images.pexels.com/photos/1106468/pexels-photo-1106468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 7">
+      </div>
+    </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <script>
+    const menuIcon = document.querySelector('.menu-icon');
+    const menu = document.querySelector('.menu');
+
+    menuIcon.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    const menuLinks = document.querySelectorAll('.menu>a');
+    menuLinks.forEach((link) => {
+      console.log(link);
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
+    });
+    </script>
+</body>
+</html>
